@@ -5,7 +5,7 @@ from time import time
 import serial
 import csv
 
-ser = serial.Serial('/dev/tty.usbserial-A900XSAC', 9600)
+ser = serial.Serial('/dev/ttyXBEE', 9600)
 
 xbee = ZigBee(ser)
 
