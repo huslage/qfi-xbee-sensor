@@ -17,7 +17,7 @@ while True:
 	with open('sensorlog.csv', 'a') as f:
             csvout = csv.writer(f)
 	    for sample in response['samples']:
-	        row = [time(),source_addr_long, sample['adc-0'], sample['adc-1']]
+	        row = [time(), source_addr_long, sample['adc-0'], sample['adc-1']]
 		csvout.writerow(row)
     except KeyboardInterrupt:
         break
