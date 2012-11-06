@@ -2,3 +2,7 @@
 .*.swp
 *.egg-info
 venv
+bin
+include
+lib
+local
