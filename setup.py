@@ -4,6 +4,7 @@ VERSION = '0.1'
 install_requires = [
     'pyramid',
     'pyserial',
+    'supervisor',
     'XBee',
 ]
 
