@@ -4,6 +4,7 @@ VERSION = '0.1'
 install_requires = [
     'pyramid',
     'pyserial',
+    'requests',
     'supervisor',
     'XBee',
 ]
@@ -18,5 +19,6 @@ setup(name='qfi_xbee_sensor',
       entry_points="""\
       [console_scripts]
       logsensors = qfi_xbee_sensor.xbee_sensor:main
+      uploadsensors = qfi_xbee_sensor.cosm:main
       """
       )
