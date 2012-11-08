@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quatar Foundation -- Mangrove Sensor Array Status</title>
+    </head>
+    <body>
+        <h1>Quatar Foundation -- Mangrove Sensor Array Status</h1>
+        <p tal:condition="last_upload">
+            Last upload to COSM at ${last_upload}.
+        </p>
+        <p tal:condition="not last_upload">
+            No upload to COSM yet.
+        </p>
+        <div tal:repeat="sensor sensor_data">
+            <h2>Sensor ${sensor.id}</h2>
+            <p>
+                <b>Air:</b> ${sensor.air}C,
+                <b>Water:</b> ${sensor.water}C
+                (read at ${sensor.timestamp})
+            </p>
+        </div>
+        <div class="footer">
+            Powered by tethr.
+        </div>
+        <script>
+            window.setInterval(function() {
+                window.location.reload(true);
+            }, 60000);
+        </script>
+    </body>
+</html>

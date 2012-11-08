@@ -20,5 +20,6 @@ setup(name='qfi_xbee_sensor',
       [console_scripts]
       logsensors = qfi_xbee_sensor.xbee_sensor:main
       uploadsensors = qfi_xbee_sensor.cosm:main
+      webstatus = qfi_xbee_sensor.webui:main
       """
       )
