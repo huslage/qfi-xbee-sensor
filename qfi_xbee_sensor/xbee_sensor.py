@@ -38,7 +38,7 @@ def main(argv=sys.argv[1:]):
                 csvout = csv.writer(f)
                 for sample in response['samples']:
                     row = (time(), source_addr_long,
-                           temp(sample['adc-0']), temp(sample['adc-1']))
+                           tempAir(sample['adc-0']), tempWater(sample['adc-1']))
                     csvout.writerow(row)
         except KeyboardInterrupt:
             break
@@ -46,9 +46,19 @@ def main(argv=sys.argv[1:]):
     ser.close()
 
 
-def temp(sample):
+def tempWater(sample):
     """
     Convert an integer sample from an A->D converter into a temperature reading.
     """
-    # XXX ???
-    return sample
+    sample *= 1.17
+    celsius = (sample - 20.5128) * 0.0512
+    return celsius
+
+def tempAir(sample):
+    """
+    Convert an integer sample from an A->D converter into a temperature reading.
+    """
+    sample *= 1.17
+    sample /= 1000
+    celsius = (sample - 0.5) * 100
+    return celsius
