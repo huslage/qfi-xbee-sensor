@@ -50,15 +50,16 @@ def tempWater(sample):
     """
     Convert an integer sample from an A->D converter into a temperature reading.
     """
-    sample *= 1.17
+    sample *= .0009
+    sample *= 1000
     celsius = (sample - 20.5128) * 0.0512
-    return celsius
+    return round(celsius,2)
 
 def tempAir(sample):
     """
     Convert an integer sample from an A->D converter into a temperature reading.
     """
-    sample *= 1.17
+    sample *= 1.0
     sample /= 1000
     celsius = (sample - 0.5) * 100
-    return celsius
+    return round(celsius,2)
